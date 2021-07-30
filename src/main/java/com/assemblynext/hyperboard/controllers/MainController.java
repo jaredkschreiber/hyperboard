@@ -117,7 +117,7 @@ public class MainController {
         }
         //add max days
         model.addAttribute("maxdays", siteConfig.getMaxEntryExpirationDateDays());
-        return "newEntry";
+        return "newentry";
     }
 
     @PostMapping("new")
