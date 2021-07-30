@@ -1,9 +1,17 @@
 package com.assemblynext.hyperboard.utilities;
 
 import lombok.Value;
+import java.util.Map;
+import static java.util.Map.entry; 
 
 @Value
 public class SiteConfig{
+
+    //wordfilters
+    final Map<String, String> filteredWords = Map.ofEntries(
+        entry("iq", "world of warcraft score"),
+        entry("nigger", "black king")
+    );
     
     //time trap secure password
     final String timeCodePass = "81nczkkaah1";
