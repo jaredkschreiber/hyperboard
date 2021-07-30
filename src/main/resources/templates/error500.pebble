@@ -1,0 +1,7 @@
+{% extends "error" %}
+
+{% block errorcontent %}
+    <h1>500</h1>
+    <p><img src="/hyper192.png"/></p>
+    <p>Internal Server Error</p>
+{% endblock errorcontent %}

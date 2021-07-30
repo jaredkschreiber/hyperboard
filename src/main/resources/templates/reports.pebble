@@ -1,0 +1,54 @@
+<form class="hyperform" method="post" enctype=multipart/form-data action="/mod/home">
+<label for="actionOption">Action</label>
+<select name="action" id="actionOption" required>
+  <option value="dismiss">Dismiss Report</option>
+  <option value="delete">Delete Only</option>
+  <option value="ban">Ban Only</option>
+  <option value="bananddelete">Ban and Delete</option>
+  <option value="spoiler">Spoiler/Unspoiler</option>
+</select>
+<label for="enddt">Expiration Date(ban)</label>
+<input name="expdt" type="date" id="enddt" value="{{datedefault}}" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
+<label for="reas">Reason(ban)</label>
+<input class="u-full-width" name="actionreason" id="reas" type="text" maxlength="250">
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Reason</th>
+      <th>Type</th>
+      <th>ID</th>
+      <th>IP addr</th>
+      <th>Reporter IP addr</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for report in reports %}
+    <tr>
+      <td><input type="checkbox" name="reportlist[]" value="{% if report.reply is null %}e{% else %}r{% endif %}{{ report.id }}"></td>
+      <td>{{ report.reason }}</td>
+      {% if report.reply is null %}
+      <td>Post</td>
+      {% else %}
+      <td>Comment</td>
+      {% endif %}     
+
+      {% if report.reply is null %}
+      <td><a href="/entries/{{ report.entry.id }}" target="_blank">{{ report.entry.id }}</a></td>
+      {% else %}
+      <td><a href="/entries/{{ report.entry.id }}#r{{ report.reply.id }}" target="_blank">{{ report.reply.id }}</a></td>
+      {% endif %}    
+
+      {% if report.reply is null %}
+      <td>{{ report.entry.ip }}</td>
+      {% else %}
+      <td>{{ report.reply.ip }}</td>
+      {% endif %}   
+      <td>{{ report.ip }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+<input class="button-primary" type="submit" value="Do Action(s)">
+</form>

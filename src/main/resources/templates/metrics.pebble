@@ -1,0 +1,65 @@
+{% extends "base" %}
+
+{% block content %}
+<div class="hyperentry"><h1>
+Stats (72 hours)
+</h1>
+</div>
+
+<div class="container hypertable">
+  <div class="row">
+    <div class="three columns">
+      Posts: {{ ppd }}
+    </div>
+    <div class="three columns">
+      Post IPs: {{ uniqueips }}
+    </div>
+    <div class="three columns">
+      Comments: {{ cpd }}
+    </div>
+    <div class="three columns">
+      Comment IPs: {{ uniquecommentips }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="one-half column">
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Tag</th>
+            <th>Posts</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for t in tagsdata %}
+          <tr>
+            <td>{{ t.key }}</td>
+            <td>{{ t.value }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="one-half column">
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Tag</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for t in tagsdata2 %}
+          <tr>
+            <td>{{ t.key }}</td>
+            <td>{{ t.value }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+{% endblock content %}

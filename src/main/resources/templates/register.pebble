@@ -1,0 +1,22 @@
+{% extends "base" %}
+
+{% block content %}
+<form class="hyperform" method="post" enctype="multipart/form-data" action="/register">
+<div class="row">
+    <div class="four columns">
+        <label for="usernameinput">Username</label>
+        <input name="username" class="u-full-width" type="text" maxlength="30" id="usernameinput" required>
+    </div>
+    <div class="four columns">
+        <label for="passinput">Password</label>
+        <input name="password" class="u-full-width" type="password" maxlength="255" id="passinput" required>
+    </div>
+    <div class="four columns">
+        <label for="pass2input">Repeat Password</label>
+        <input name="password2" class="u-full-width" type="password" maxlength="255" id="pass2input" required>
+    </div>
+  <input id="postbutton" class="button-primary" type="submit" value="Register">
+</div>
+<input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+</form>
+{% endblock content %}

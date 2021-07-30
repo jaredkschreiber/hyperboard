@@ -1,0 +1,42 @@
+{% extends "base" %}
+
+{% block content %}
+    <div class="hyperentry">
+        <figure>
+            {% if entry.attachmentType == "webm" or entry.attachmentType == "mp4" %}
+                <video class="hypervideo" preload="metadata" controls>
+                <source src="/uploads/{{ entry.id }}.{{ entry.attachmentType }}">
+                Sorry, your browser doesn't support embedded videos.
+            </video>
+            {% elseif entry.attachmentType == "pdf" %}
+                <a target="_blank" href="/uploads/{{ entry.id }}.pdf"><img src="/pdf.png" alt="tile image"></a>
+            {% elseif entry.attachmentType == "zip" %}
+                <a href="/uploads/{{ entry.id }}.zip"><img src="/zip.png" alt="tile image"></a>
+            {% elseif entry.attachmentType == "mp3" %}
+                <audio preload="metadata" controls>
+                    <source src="/uploads/{{ entry.id }}.{{ entry.attachmentType }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            {% else %}
+                <img src="/uploads/{{ entry.id }}.{{ entry.attachmentType }}" alt="tile image">
+            {% endif %}
+            <figcaption>{% if entry.archive %}✞{% endif %}{% if entry.contentWarning %}⚠{% endif %} 
+            <a href="/report/entries/{{ entry.id }}">⊘</a> 
+            Blog Entry #{{ entry.id }} : {{ entry.subject }}<br>
+            Author: {{ entry.name | default("Anonymous") }} 
+            / Posted on: {{ entry.createDate | date("yyyy-MM-dd") }} 
+            / Expires on: {{ entry.pruneDate | date("yyyy-MM-dd") }}
+            <br>{% for tag in entry.tags %}<a href="/tag/{{ tag.tag }}">#{{ tag.tag }}</a> {% endfor %}
+            </figcaption>
+        </figure>
+        <div class="hypercomment">
+        {{ entry.comment | raw }}
+        </div>
+    </div>
+    <br>
+    <form class="hyperform" method="post" enctype=multipart/form-data action="/entries/{{ entry.id }}">
+    {% include "replies" %}
+    {% include "reply" %}
+    </form>
+    <div class="hyperentry"><a href="#top">▲ return to top ▲</a></div>
+{% endblock content %}

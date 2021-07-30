@@ -1,0 +1,32 @@
+{% extends "base" %}
+
+{% block content %}
+    <div class="hyperfaq">
+    <h1>Frequently Asked Questions</h1>
+    <ul>
+        <li><strong>What is Hyperboard?</strong> - Hyperboard is anonymous blogging software. 
+        Users can create blog entries or comment on posts, without registering or logging in.
+        </li>
+        <li><strong>What is Portal?</strong> - Portal is the name for the home page or front page of the site. It is the default page and 
+        it displays a catalog of the most recent posts. 
+        </li>
+        <li><strong>What is the Catalog?</strong> - The catalog is shown on portal and tag pages. It displays the most recent posts made on the site. 
+        More recent posts are shown at the top left, with less recent posts being shown further right and to the bottom. Each post is 
+        represented by a thumbnail of an image or picture indicating that post's attachment, along with the title/subject text of the 
+        post. By clicking on the image you can navigate to a page displaying the whole entry, along with any associated comments. 
+        Each page of the catalog contains a maximum amount of tiles representing posts on the site. This maxmimum is chosen by the site 
+        operator. You can navigate the catalog by using the arrow buttons near the top of the screen. The "Current Page" text displays 
+        which page of the catalog you are currently on, and clicking the right or left arrows moves you forward or backwards in the 
+        catalog. The first page of the catalog is page zero, and does not contain a back button.
+        </li>
+        <li><strong>What are Tags?</strong> - Tags indicate that a post or entry belongs to a certain topic or category of interest. 
+        Tags are shown with a "pound" or "hashtag" sign (i.e. "#") and followed by letters, numbers, symbols etc. Tags are added to the entry 
+        by the author at the time of post creation. Additionally, commenters may add additional tags to the post in order to increase it's 
+        visibility across categories. No duplicate tags are allowed (i.e. no adding the same tag more than once). Tags may also not contain whitespace. 
+        A number of tags, selected by the website's administrator, are shown at the top of most pages. By clicking on these tags you can 
+        navigate to a tag catalog view similar to the general portal catalog, but filtered to only show posts that are associated with that 
+        tag. 
+        </li>
+    </ul>
+    </div>
+{% endblock content %}

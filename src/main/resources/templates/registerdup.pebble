@@ -1,0 +1,5 @@
+{% extends "base" %}
+
+{% block content %}
+<div class="hypererror"><h3>Registration warning - duplicate account</h3></div>
+{% endblock content %}

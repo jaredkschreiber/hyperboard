@@ -1,0 +1,10 @@
+{% extends "base" %}
+
+{% block content %}
+<div class="hypererror"><h3>Account</h3>
+<p>username: {{ username }}<br>roles: {{ authorities }}</p>
+{% if mod %}<p><a href="/mod/home">[ Moderation Page ]</a></p>{% endif %}
+{% if admin %}<p><a href="/mod/admin">[ Administration Page ]</a></p>{% endif %}
+<a href="/auth/logout"><button class="button-primary">Logout</button></a>
+</div>
+{% endblock content %}

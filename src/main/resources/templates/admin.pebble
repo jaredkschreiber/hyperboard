@@ -1,0 +1,33 @@
+{% extends "base" %}
+
+{% block content %}
+    <div class="row hypertabs">
+      <div class="twelve columns">
+        <ul class="tab-nav">
+          <li>
+            <a class="button active" href="/mod/admin">Userlist</a>
+          </li>
+          <li>
+            <a class="button" href="/mod/admin?staff">Stafflist</a>
+          </li>
+          <li>
+            <a class="button" href="/mod/admin?rank">Promote/Demote</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active">
+              {% if staffpage %}
+              <h5>Staff List</h5>
+              <p>{% include "stafflist" %}</p>
+              {% elseif rankpage %}
+              <h5>Promote/Demote</h5>
+              <p>{% include "demod" %}</p>
+              {% else %}
+              <h5>Recent Users</h5>
+              <p>{% include "userlist" %}</p>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

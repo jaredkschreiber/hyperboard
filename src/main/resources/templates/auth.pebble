@@ -1,0 +1,19 @@
+{% extends "base" %}
+
+{% block content %}
+{% if error %}<div class="hypererror">Login Warning - bad username/password combination</div>{% endif %}
+<form class="hyperform" method="post" action="/auth/login">
+<div class="row">
+    <div class="six columns">
+        <label for="usernameinput">Username</label>
+        <input name="username" class="u-full-width" type="text" maxlength="30" id="usernameinput" required>
+    </div>
+    <div class="six columns">
+        <label for="passinput">Password</label>
+        <input name="password" class="u-full-width" type="password" maxlength="255" id="passinput" required>
+    </div>
+  <input id="postbutton" class="button-primary" type="submit" value="Login">
+</div>
+<input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+</form>
+{% endblock content %}

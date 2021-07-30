@@ -1,0 +1,51 @@
+{% extends "base" %}
+
+{% if tagname %}
+{% block title %}
+    {{tagname | default("Hyperboard") }} 
+{% endblock %}
+{% endif %}
+
+{% block content %}
+    <div class="row hypercatalogarrows">
+        <div class="one-third column">
+            {% if back is empty %}
+                &nbsp;
+            {% else %}
+                <a href="/{{back}}">⬅</a>
+            {% endif %}
+        </div>
+        <div class="one-third column hypercenter">Current Page: {{currentpage}}</div>
+        <div class="one-third column hyperrightarrow">
+            <a href="/{{forward}}">⮕</a>
+        </div>
+    </div>
+    <br>
+    {% for entry in catalogtiles %}
+    <div class="hypercatalogtile">
+        <figure>
+            {% if entry.contentWarning %}
+                <a href="/entries/{{ entry.id }}">
+                <img src="/hyper192.png" width="150px" height="150px" alt="catalog tile image">
+                </a>
+                <figcaption>{% if entry.archive %}✞ <small>Archived</small><br>{% endif %}⚠ <small>NSFW</small><br>{{ entry.subject }}</figcaption>
+            {% else %}
+                <a href="/entries/{{ entry.id }}">
+                {% if entry.attachmentType == "webm" or entry.attachmentType == "mp4" %}
+                    <img class="hypervimg" src="/video.png" alt="catalog tile image">
+                {% elseif entry.attachmentType == "pdf" %}
+                    <img src="/pdf.png" alt="catalog tile image">
+                {% elseif entry.attachmentType == "zip" %}
+                    <img src="/zip.png" alt="catalog tile image">
+                {% elseif entry.attachmentType == "mp3" %}
+                    <img class="hypervimg" src="/audio.png" alt="catalog tile image">
+                {% else %}
+                    <img src="/thumbs/thumbnail.{{ entry.id }}.{{ entry.attachmentType }}" alt="catalog tile image">
+                {% endif %}
+                </a>
+                <figcaption>{% if entry.archive %}✞  <small>Archived</small><br>{% endif %}{{ entry.subject }}</figcaption>
+            {% endif %}
+        </figure>
+    </div>
+    {% endfor %}
+{% endblock content %}

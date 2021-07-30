@@ -1,0 +1,13 @@
+<form class="hyperform" method="post" enctype=multipart/form-data action="/mod/admin/demod">
+<label for="mod">Add/Remove MOD status by username</label>
+<input class="u-full-width" name="accountmod" id="mod" type="text" maxlength="30">
+<input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+<input class="button-primary" type="submit" value="MOD/DE-MOD">
+</form>
+<br>
+<form class="hyperform" method="post" enctype=multipart/form-data action="/mod/admin/deadmin">
+<label for="mod">Add/Remove ADMIN status by username</label>
+<input class="u-full-width" name="accountmod" id="mod" type="text" maxlength="30">
+<input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+<input class="button-primary" type="submit" value="ADMIN/DE-ADMIN">
+</form>

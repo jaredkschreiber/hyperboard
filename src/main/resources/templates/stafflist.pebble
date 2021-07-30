@@ -1,0 +1,22 @@
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Mod</th>
+      <th>Admin</th>
+      <th>Registered on</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in stafflist %}
+    <tr>
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{% if user.mod %}✅{% endif %}</td>
+      <td>{% if user.admin %}✅{% endif %}</td>
+      <td>{{ user.createDate }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>

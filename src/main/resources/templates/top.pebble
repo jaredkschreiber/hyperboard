@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="tagsnav">
+    <a href="/">portal</a> |
+    <a href="/tag/general">#general</a> 
+    <a href="/tag/random">#random</a> 
+    <a href="/tag/hobby">#hobby</a> 
+    <a href="/tag/tech">#tech</a> 
+    <a href="/tag/edu">#edu</a> 
+    <a href="/tag/games">#games</a> 
+    <a href="/tag/anime">#anime</a> 
+    <a href="/tag/music">#music</a> 
+    <a href="/tag/misc">#misc</a> 
+    <a href="/tag/meta">#meta</a>
+    | <a href="/faq">faq</a> 
+    <a href="/new">##new</a> 
+    [<a href="/auth">↻</a>] 
+    [<a href="/register">✔</a>] 
+    <a href="/metrics">∑</a>
+    <a href="#bottom">▼</a>
+  </div>
+  <br>
+</div>

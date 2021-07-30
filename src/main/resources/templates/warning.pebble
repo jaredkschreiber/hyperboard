@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Hyperboard</title>
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="alternate icon" type="image/png" href="/favicon-16x16.png"/>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0191ff">
+
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/hyper.css">
+
+</head>
+
+<body>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="hypererror">
+        {% block errorcontent %}
+            <h1>Warning</h1>
+            <p><img src="/hyper192.png"/></p>
+            <p>Invalid input. ex: Comment/subject/etc. may be too short or too long, invalid attachment type. Please try again.</p>
+        {% endblock errorcontent %}
+    </div>
+  </div>
+</div>
+
+{% include "footer" %}
+</body>
+</html>

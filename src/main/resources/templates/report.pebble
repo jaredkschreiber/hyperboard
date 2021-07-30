@@ -1,0 +1,26 @@
+{% extends "base" %}
+
+{% block content %}
+<form class="hyperform" method="post" enctype=multipart/form-data action="/report/new">
+  <div class="row">
+    <div class="u-full-width">
+      <label for="reportOption">Reason for reporting {% if posttype == "entries" %}Blog{% else %}Reply{% endif%} #{{postid}}?</label>
+      <select name="reason" class="u-full-width" id="reportOption" required>
+        <option value="Other">Other</option>
+        <option value="Derailing Discussion/Baiting">Derailing Discussion/Baiting</option>
+        <option value="Automated Spam/Botting">Automated Spam/Botting</option>
+        <option value="Unspoilered NSFW content">Unspoilered NSFW content</option>
+        <option value="Evading character minimum">Evading character minimum</option>
+        <option value="Raiding/Slide">Raiding/Slide</option>
+        <option value="Glows in the dark">Glows in the dark</option>
+        <option value="Moron/Brainlet">Moron/Brainlet</option>
+        <option value="Violates rules or illegal">Violates rules or illegal</option>
+      </select>
+    </div>
+    <input type="hidden" name="post_type" value="{{posttype}}" required>
+    <input type="hidden" name="post_id" value="{{postid}}" required>
+    <input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+  </div>
+  <input class="button-primary" type="submit" value="Submit">
+</form>
+{% endblock content %}

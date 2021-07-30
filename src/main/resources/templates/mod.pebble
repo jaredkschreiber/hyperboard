@@ -1,0 +1,33 @@
+{% extends "base" %}
+
+{% block content %}
+    <div class="row hypertabs">
+      <div class="twelve columns">
+        <ul class="tab-nav">
+          <li>
+            <a class="button active" href="/mod/home">Reports</a>
+          </li>
+          <li>
+            <a class="button" href="/mod/home?bans">Banlist</a>
+          </li>
+          <li>
+            <a class="button" href="/mod/home?archive">Archive</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active">
+            {% if banspage %}
+              <h5>Recent Bans</h5>
+              <p>{% include "banslist" %}</p>
+            {% elseif archivepage %}
+              <h5>Archive Posts</h5>
+              <p>{% include "archive" %}</p>
+            {% else %}
+              <h5>Recent Reports</h5>
+              <p>{% include "reports" %}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

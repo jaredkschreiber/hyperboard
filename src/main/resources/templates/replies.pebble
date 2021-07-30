@@ -1,0 +1,13 @@
+{% for reply in entry.replies %}
+<div class="hyperreply" id="r{{ reply.id }}">
+<input type="checkbox" name="replylist[]" value="{{ reply.id }}"> <a href="/report/reply/{{ reply.id }}">⊘</a> <strong>{{ reply.name }}</strong> {{ reply.createDate | date("yyyy-MM-dd HH:mm:ss") }} No. {{ reply.id }} 
+<small>{% for el in reply.repliesToThisPost %}
+<a href="#r{{ el.replyFrom.id }}">&gt;&gt;{{ el.replyFrom.id }}</a> 
+{% endfor %}</small>
+<span class="hyperreplyi">
+{% if reply.repliesFromThisPost is not empty %}<small>replying to: {% for el in reply.repliesFromThisPost %}<a href="#r{{ el.replyTo.id }}">&gt;&gt;{{ el.replyTo.id }}</a> {% endfor %}</small><br>{% endif %}
+{{ reply.comment | raw }}
+</span>
+</div>
+<br>
+{% endfor %}

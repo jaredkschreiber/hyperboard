@@ -1,0 +1,6 @@
+<form class="hyperform" method="post" enctype=multipart/form-data action="/mod/archive">
+<label for="entryinput">Enter Post/Entry (by Entry ID)</label>
+<input name="archiveid" pattern="[0-9]+" class="u-full-width" type="text" id="entryinput">
+<input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+<input class="button-primary" type="submit" value="Archive/Unarchive">
+</form>

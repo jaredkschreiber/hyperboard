@@ -1,0 +1,11 @@
+{% extends "error" %}
+
+{% block errorcontent %}
+    <h1>Banned!</h1>
+    <p><img src="/hyper192.png"/></p>
+    <p>You have been banned from the site.</p>
+    <p>Ban ID/Ticket: {{ ban.id }}<br>
+    IP: {{ ban.ip }}<br>
+    Reason: {{ ban.reason }}<br>
+    Expires: {{ ban.expDate | date("MMMM dd, yyyy") }}</p>
+{% endblock errorcontent %}

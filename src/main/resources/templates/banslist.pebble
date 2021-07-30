@@ -1,0 +1,34 @@
+<form class="hyperform" method="post" enctype=multipart/form-data action="/mod/unban">
+    <table class="u-full-width">
+    <thead>
+        <tr>
+        <th></th>
+        <th>#</th>
+        <th>IP addr</th>
+        <th>Reason</th>
+        <th>Expires</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for banent in banslist %}
+        <tr>
+        <td><input type="checkbox" name="banlist[]" value="{{ banent.id }}"></td>
+        <td>{{ banent.id }}</td>
+        <td>{{ banent.ip }}</td>
+        <td>{{ banent.reason }}</td>
+        <td>{{ banent.expDate }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+<input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+<input class="button-primary" type="submit" value="Revoke Ban(s)">
+</form>
+<br>
+Unban by ban id/ticket id
+<br>
+<form class="hyperform" method="post" enctype=multipart/form-data action="/mod/unban">
+<input type="text" name="banlist[]" value="{{ banent.id }}" pattern="[0-9]+">
+<input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+<input class="button-primary" type="submit" value="Revoke Ban">
+</form>

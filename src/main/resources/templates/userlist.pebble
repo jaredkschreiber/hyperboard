@@ -1,0 +1,28 @@
+<form class="hyperform" method="post" enctype=multipart/form-data action="/mod/admin">
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Mod</th>
+      <th>Admin</th>
+      <th>Registered on</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in userlist %}
+    <tr>
+      <td><input type="checkbox" name="accountlist[]" value="{{ user.id }}"{% if user.mod or user.admin %}disabled{% endif %}></td>
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{% if user.mod %}✅{% endif %}</td>
+      <td>{% if user.admin %}✅{% endif %}</td>
+      <td>{{ user.createDate }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+<input class="button-primary" type="submit" value="Delete Account(s)">
+</form>

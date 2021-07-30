@@ -1,0 +1,7 @@
+{% extends "error" %}
+
+{% block errorcontent %}
+    <h1>404</h1>
+    <p><img src="/hyper192.png"/></p>
+    <p>Page not found</p>
+{% endblock errorcontent %}

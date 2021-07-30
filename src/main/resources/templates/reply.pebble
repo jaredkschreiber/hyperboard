@@ -1,0 +1,27 @@
+{% if entry.replies|length < 500 %}
+  {% if entry.archive %}
+  <div class="hyperentry">thread archived - no further comments possible.</div>
+  {% else %}
+    <div class="row">
+      <div class="ten columns">
+        <label for="nameinput">Name</label>
+        <input name="name" class="u-full-width" type="text" maxlength="75" id="nameinput">
+      </div>
+      <div class="two columns">
+      <label for="postubtton">Reply</label>
+      <input id="postbutton" class="button-primary" type="submit" value="Post">
+      </div>
+    </div>
+
+    <label for="tagsinput">Tags (tags start with #, delimit by whitespace. example: #example #secondtag)</label>
+    <input name="tags" class="u-full-width" type="text" id="tagsinput" pattern="(#[^\s]+[\s]*)*">
+
+    <label for="commentinput">Comment</label>
+    <textarea name="comment" class="u-full-width" id="commentinput" maxlength="12000" required></textarea>
+    
+    <input type="hidden" name="tsenc" value="{{ tsenc }}"/>
+    <input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+  {% endif %}
+{% else %}
+<div class="hyperentry">thread full - no further comments possible.</div>
+{% endif %}
