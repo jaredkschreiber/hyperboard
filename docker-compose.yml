@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  db:
+    image: "postgres:12"
+    ports:
+      - "5432:5432"
+    environment: 
+        - POSTGRES_USER=hyperboard
+        - POSTGRES_PASSWORD=8ahs8dh8sz0
+        - POSTGRES_DB=hyperboard
+    restart: unless-stopped
+  web:
+    build: .
+    volumes: 
+      - ./public:/public
+    command: java -jar target/app.jar
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment: 
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/hyperboard
+      - SPRING_DATASOURCE_USERNAME=hyperboard
+      - SPRING_DATASOURCE_PASSWORD=8ahs8dh8sz0
