@@ -25,24 +25,9 @@ public class PostProcessingService {
         }
     }
 
-    private String filterWords(String comment){
-        String modifiedComment = comment;
-        Map<String,String> wordfilters = siteConfig.getFilteredWords();
-        Iterator<Map.Entry<String,String>> it = wordfilters.entrySet().iterator();
-        while (it.hasNext()){
-            Map.Entry<String,String> pair = (Map.Entry<String,String>)it.next();
-            String word = (String) pair.getKey();
-            String replacementWord = (String) pair.getValue();
-
-            modifiedComment = modifiedComment.replaceAll(word, replacementWord);
-        }
-
-        return modifiedComment;
-    }
-
     public String processComment(String comment){
 
-        String result = filterWords(comment).trim();
+        String result = comment.trim();
         //hyperlink replacement
         result = result.replaceAll("\\b(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]", "[link]$0[/blink]$0[/link]");
         //greentext replacement
