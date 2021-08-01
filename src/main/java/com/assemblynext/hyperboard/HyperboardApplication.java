@@ -20,6 +20,7 @@ public class HyperboardApplication {
 		  return (args) -> {
 			//create public folders on classpath for thumbnails and uploads
 			String[] PATHS = {
+				"./db",
 				"./public",
 				"./public/uploads",
 				"./public/thumbs"
