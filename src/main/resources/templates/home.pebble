@@ -12,12 +12,12 @@
             {% if back is empty %}
                 &nbsp;
             {% else %}
-                <a href="/{{back}}">⬅</a>
+                <a href="/{{back}}">⇦</a>
             {% endif %}
         </div>
         <div class="one-third column hypercenter">Current Page: {{currentpage}}</div>
         <div class="one-third column hyperrightarrow">
-            <a href="/{{forward}}">⮕</a>
+            <a href="/{{forward}}">⇨</a>
         </div>
     </div>
     <br>
