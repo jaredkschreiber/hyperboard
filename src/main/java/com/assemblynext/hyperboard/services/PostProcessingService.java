@@ -31,9 +31,7 @@ public class PostProcessingService {
         //hyperlink replacement
         result = result.replaceAll("\\b(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]", "[link]$0[/blink]$0[/link]");
         //greentext replacement
-        result = result.replaceAll("(?<![>])>([^[>]].*?)(\\r\\n|\\n|$)", "[greentext]&gt;$1$2[/greentext]");
-        //orangetext replacement
-        result = result.replaceAll("<([^[>]].*?)(\\r\\n|\\n|$)", "[orangetext]&lt;$1$2[/orangetext]");
+        result = result.replaceAll("(^|\\s)(>)([^\\s]*)", "[greentext]$1$2$3[/greentext]");
         //red replacement
         result = result.replaceAll("==(.*?)==", "[redtext]$1[/redtext]");
         //spoiler replacement
@@ -61,9 +59,6 @@ public class PostProcessingService {
 
         //final replacement blockquote
         result = result.replaceAll("\\[blockquote\\](.*?)\\[/blockquote\\]", "<blockquote>$1</blockquote>");
-
-        //final replacement orangetext
-        result = result.replaceAll("\\[orangetext\\](.*?)\\[/orangetext\\]", "<span class='orangetext'>$1</span>");
 
         //final replacement redtxt
         result = result.replaceAll("\\[redtext\\](.*?)\\[/redtext\\]", "<span class='redtext'><strong>$1</strong></span>");

@@ -140,7 +140,7 @@ public class MainController {
                 //support: png, jpg, gif,pdf,mp3,mp4,webm
                 final List<String> contentTypes = Arrays.asList("image/png", "image/jpeg", "image/gif","application/pdf","audio/mpeg","video/mp4","video/webm","application/zip");
                 String fileContentType = file.getContentType();                   
-                if (commentString.length() > 12000 || !contentTypes.contains(fileContentType)){
+                if (commentString.length() > 100000 || !contentTypes.contains(fileContentType)){
                     return "warning";
                 } else {
                     //create new entry

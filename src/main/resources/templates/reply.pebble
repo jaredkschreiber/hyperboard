@@ -17,7 +17,7 @@
     <input name="tags" class="u-full-width" type="text" id="tagsinput" pattern="(#[^\s]+[\s]*)*">
 
     <label for="commentinput">Comment</label>
-    <textarea name="comment" class="u-full-width" id="commentinput" maxlength="12000" required></textarea>
+    <textarea name="comment" class="u-full-width" id="commentinput" required></textarea>
     
     <input type="hidden" name="tsenc" value="{{ tsenc }}"/>
     <input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>

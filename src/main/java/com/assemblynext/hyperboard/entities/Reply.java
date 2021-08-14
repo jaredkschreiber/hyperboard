@@ -40,7 +40,7 @@ public class Reply {
     @Column(name="name_txt")
     private String name;
 
-    @Length(max=12000)
+    @Length(max=100000)
     @NotBlank
     @Column(name="comment_txt")
     private String comment;

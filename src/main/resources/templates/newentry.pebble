@@ -26,7 +26,7 @@
   <input name="tags" class="u-full-width" type="text" id="tagsinput" pattern="(#[^\s]+[\s]*)*">
 
   <label for="commentinput">Comment (1400 → 12000 characters required)</label>
-  <textarea name="comment" class="u-full-width" id="commentinput" minlength="1400" maxlength="12000" required></textarea>
+  <textarea name="comment" class="u-full-width" id="commentinput" minlength="1400" required></textarea>
 
   <div class="row">
     <div class="five columns">

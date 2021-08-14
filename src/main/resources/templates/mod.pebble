@@ -13,6 +13,9 @@
           <li>
             <a class="button" href="/mod/home?archive">Archive</a>
           </li>
+          <li>
+            <a class="button" href="/mod/home?tags">Tags</a>
+          </li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active">
@@ -22,6 +25,9 @@
             {% elseif archivepage %}
               <h5>Archive Posts</h5>
               <p>{% include "archive" %}</p>
+            {% elseif tagspage %}
+              <h5>Tags</h5>
+              <p>{% include "tagslist" %}</p>
             {% else %}
               <h5>Recent Reports</h5>
               <p>{% include "reports" %}</p>

@@ -17,3 +17,11 @@ Follows normal java build process using maven. Install postgres first, then pack
 ## Technical Note
 - mvn clean package -DskipTests
 - docker compose up -d
+
+## Updates for version 1.1
+- Reworked greentext to only activate on newline or space
+- Removed orangetext, too many colors looking clownish
+- Added ability for moderators to delete tags
+- Removed maxlength attribute from textarea on reply and new post
+- Set max length of comment in both entry/reply entity to 100000 characters, and in controller
+- Updated FAQ

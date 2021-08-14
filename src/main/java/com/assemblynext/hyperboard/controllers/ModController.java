@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,11 +20,13 @@ import com.assemblynext.hyperboard.entities.Ban;
 import com.assemblynext.hyperboard.entities.Entry;
 import com.assemblynext.hyperboard.entities.Reply;
 import com.assemblynext.hyperboard.entities.Report;
+import com.assemblynext.hyperboard.entities.Tag;
 import com.assemblynext.hyperboard.entities.User;
 import com.assemblynext.hyperboard.repositories.BanRepository;
 import com.assemblynext.hyperboard.repositories.EntryRepository;
 import com.assemblynext.hyperboard.repositories.ReplyRepository;
 import com.assemblynext.hyperboard.repositories.ReportRepository;
+import com.assemblynext.hyperboard.repositories.TagRepository;
 import com.assemblynext.hyperboard.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +59,9 @@ public class ModController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private TagRepository tagRepository;
 
     @GetMapping("/admin")
     public String adminpage(Model model
@@ -125,7 +131,8 @@ public class ModController {
     public String modpage(Model model
                          ,HttpServletRequest request
                          ,@RequestParam Optional<String> bans
-                         ,@RequestParam Optional<String> archive){
+                         ,@RequestParam Optional<String> archive
+                         ,@RequestParam Optional<String> tags){
         //get csrf
         CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
         if (csrfToken != null) {
@@ -149,6 +156,10 @@ public class ModController {
 
         if(archive.isPresent()){
             model.addAttribute("archivepage", true);
+        }
+
+        if(tags.isPresent()){
+            model.addAttribute("tagspage", true);
         }
 
         return "mod";
@@ -327,5 +338,12 @@ public class ModController {
             entryRepository.save(e);
         }
         return "redirect:/mod/home?archive";
+    }
+
+    @PostMapping("/tag")
+    public String tag(@RequestParam(value="tagname") String tag){
+        List<Tag> tags = tagRepository.findByTag(tag);
+        tagRepository.deleteAllInBatch(tags);
+        return "redirect:/mod/home?tags";
     }
 }

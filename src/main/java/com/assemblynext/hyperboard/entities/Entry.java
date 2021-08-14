@@ -44,7 +44,7 @@ public class Entry {
     @Column(name="subject_txt")
     private String subject;
 
-    @Length(min=1400)
+    @Length(min=1400, max = 100000)
     @NotBlank
     @Column(name="comment_txt")
     private String comment;
