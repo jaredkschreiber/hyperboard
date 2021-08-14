@@ -31,7 +31,7 @@ public class PostProcessingService {
         //hyperlink replacement
         result = result.replaceAll("\\b(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]", "[link]$0[/blink]$0[/link]");
         //greentext replacement
-        result = result.replaceAll("(^|\\s)(>)([^\\s]*)", "[greentext]$1$2$3[/greentext]");
+        result = result.replaceAll("(^|\\s)(>)([^\\n\\r$]*)", "[greentext]$1$2$3[/greentext]");
         //red replacement
         result = result.replaceAll("==(.*?)==", "[redtext]$1[/redtext]");
         //spoiler replacement
