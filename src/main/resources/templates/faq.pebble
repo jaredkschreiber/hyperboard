@@ -27,6 +27,12 @@
         navigate to a tag catalog view similar to the general portal catalog, but filtered to only show posts that are associated with that 
         tag. 
         </li>
+        <li><strong>Formatting Text</strong> - Users may format their text in posts using:<br>
+        **spoiler** for <span class="spoiler">spoiler</span><br>
+        [blockquote]blockquote[/blockquote] for <blockquote>blockquote</blockquote>
+        ==redtext== for <span class="redtext">redtext</span><br>
+        &gt;greentext for <span class="greentext">&gt;greentext</span><br>
+        </li>
     </ul>
     </div>
 {% endblock content %}
