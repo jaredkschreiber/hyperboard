@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.assemblynext</groupId>
 	<artifactId>hyperboard</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 	<name>hyperboard</name>
 	<description>Anonymous Blogging Software</description>
 	<properties>
