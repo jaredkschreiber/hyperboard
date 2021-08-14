@@ -1,0 +1,6 @@
+<form class="hyperform" method="post" enctype=multipart/form-data action="/mod/tag">
+<label for="taginput">Enter Tag</label>
+<input name="tagname" class="u-full-width" type="text" id="taginput">
+<input type="hidden" name="{{ csrfp }}" value="{{ csrf }}"/>
+<input class="button-primary" type="submit" value="Delete Tag">
+</form>
