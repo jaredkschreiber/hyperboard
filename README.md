@@ -2,10 +2,6 @@
 
 Anonymous blogging software written using Java with Spring Boot, skeleton.css and PostgreSQL.
 
-## Demo Instance
-
-A Demo is available at: [www.hyperboard.assemblynext.com](https://hyperboard.assemblynext.com)
-
 # Usage
 
 Hyperboard is anonymous blogging software inspired by imageboards, which are a type of anonymous internet forum based on the sharing of images and text. 
